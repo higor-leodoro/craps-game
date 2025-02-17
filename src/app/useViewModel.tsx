@@ -31,7 +31,7 @@ export default function useViewModel() {
       } else if (total === 2 || total === 3 || total === 12) {
         return setResult("Craps");
       } else if (pointers.includes(total)) {
-        setResult("Ponto");
+        setResult("Point (ponto): " + total);
         setPoint(total);
         setIsGamePhase(GamePhase.PointPhase);
       }

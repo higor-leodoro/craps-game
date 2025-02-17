@@ -2,10 +2,23 @@
 
 import ReactDice from "react-dice-complete";
 import useViewModel from "./useViewModel";
+import { useState } from "react";
+import Image from 'next/image';
+import Splash from './assets/splash.png';
 
 export default function Home() {
   const { handleRollDone, reactDice, handleRollDice, result } = useViewModel();
-  return (
+  const [isSplash, setIsSplash] = useState(true);
+
+  return isSplash ? (
+    <Image 
+      onClick={()=> setIsSplash(false)}
+      src={Splash} 
+      alt="Splash Image" 
+      layout="responsive" 
+      width={100}
+    />
+  ) : (
     <main className="flex flex-col justify-center items-center h-screen">
       <div className="flex gap-20">
         <ReactDice
